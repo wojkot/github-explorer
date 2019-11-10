@@ -1,3 +1,46 @@
-<p>
-  repos-list-item works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{repoData.name}}</mat-card-title>
+    <span class="header-stars-container">
+      <mat-icon class="header-star" matSuffix>star</mat-icon><span>{{starsCount}}</span>
+    </span>
+    <mat-card-subtitle>{{repoData.description}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="item-content">
+    <span class="language-wrapper col-20">
+      <mat-icon matSuffix>code</mat-icon>
+      <span>{{repoData.language}}</span>
+    </span>
+    <span class="col-20">Forks: {{repoData.forks_count}}</span>
+    <span class="col-20">Open issues: {{repoData.open_issues_count}}</span>
+    <span class="col-40">Last update: {{repoLastUpdate}}</span>
+  </mat-card-content>
+
+  <div class="details">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Branches ({{branchesData.length}})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-branch-item [branchesData]="branchesData"></app-branch-item>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Commits
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Comments ({{commentsData.length}})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-comment-item [commentsData]="commentsData"></app-comment-item>
+    </mat-expansion-panel>
+  </div>
+</mat-card>

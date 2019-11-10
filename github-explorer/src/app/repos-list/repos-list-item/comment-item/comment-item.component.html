@@ -1,0 +1,13 @@
+<mat-list role="list">
+<mat-card *ngFor="let commentData of commentsData">
+  <mat-card-header>
+    <mat-card-title>{{commentData.user.login}}</mat-card-title>
+    <mat-card-subtitle>{{formatDate(commentData.created_at)}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content >
+    <p>
+      {{commentData.body}}
+    </p>
+  </mat-card-content>
+</mat-card>
+</mat-list>
