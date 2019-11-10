@@ -1,3 +1,3 @@
-<p>
-  repos-list works!
-</p>
+<div>
+  <app-repos-list-item *ngFor="let repoData of reposData" [repoData]="repoData" [userName]="userName"></app-repos-list-item>
+</div>

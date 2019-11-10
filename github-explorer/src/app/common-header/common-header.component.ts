@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubApiService } from 'src/services/github-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-common-header',
@@ -10,14 +11,16 @@ export class CommonHeaderComponent implements OnInit {
 
   userName = '';
 
-  constructor(private githubApiService: GithubApiService) { }
+  constructor(
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   }
 
   searchRepos() {
     if(this.userName) {
-      this.githubApiService.setOwnerName(this.userName);
+      this.router.navigate([this.userName]);
     }
   }
 }

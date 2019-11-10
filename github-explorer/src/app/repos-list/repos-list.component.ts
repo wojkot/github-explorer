@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubApiService } from 'src/services/github-api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-repos-list',
@@ -9,14 +10,17 @@ import { GithubApiService } from 'src/services/github-api.service';
 export class ReposListComponent implements OnInit {
 
   reposData;
+  userName: string
 
-  constructor(private githubApiService: GithubApiService) { }
+  constructor(
+    private githubApiService: GithubApiService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
-    console.warn(';;;;;;;;;;;;')
-    this.githubApiService.getOwnerName().subscribe(async (ownerName) => {
-      this.reposData = await this.githubApiService.requestUsersRepoData(ownerName).toPromise();
-      console.warn(this.reposData)
+    this.route.params.subscribe(async (params) => {
+      this.userName = params.username;
+      this.reposData = await this.githubApiService.requestUsersRepoData(this.userName).toPromise();
     })
   }
 

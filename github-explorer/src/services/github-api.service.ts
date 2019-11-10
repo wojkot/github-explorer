@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GithubApiService {
+export class GithubApiService extends HttpService {
 
-  private gitReposObservable = new Observable();
-   nameSubject = new Subject<string>();
-
-  constructor(private http: HttpClient) { }
-
-  setOwnerName(name: string) {
-    this.nameSubject.next(name)
-  }
-
-  getOwnerName() {
-    return this.nameSubject;
-  }
+  constructor(protected http: HttpClient) {
+    super(http)
+   }
 
   requestUsersRepoData(userName: string) {
-    return this.http.get(`https://api.github.com/users/${userName}/repos`);
+    return super.getRequest(`https://api.github.com/users/${userName}/repos`);
+  }
+
+  requestReposBranchesData(userName: string, repoName: string) {
+    return super.getRequest(`https://api.github.com/repos/${userName}/${repoName}/branches`);
+  }
+
+  requestReposCommentsData(userName: string, repoName: string) {
+    return super.getRequest(`https://api.github.com/repos/${userName}/${repoName}/comments`);
   }
 }
