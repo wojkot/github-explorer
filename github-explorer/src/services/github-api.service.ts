@@ -8,7 +8,7 @@ import { HttpService } from './http.service';
 export class GithubApiService extends HttpService {
 
   constructor(protected http: HttpClient) {
-    super(http)
+    super(http);
    }
 
   requestUsersRepoData(userName: string) {
@@ -21,5 +21,9 @@ export class GithubApiService extends HttpService {
 
   requestReposCommentsData(userName: string, repoName: string) {
     return super.getRequest(`https://api.github.com/repos/${userName}/${repoName}/comments`);
+  }
+
+  requestReposCommitsData(userName: string, repoName: string) {
+    return super.getRequest(`https://api.github.com/repos/${userName}/${repoName}/commits`);
   }
 }

@@ -9,6 +9,6 @@ export class HttpService {
   constructor(protected http: HttpClient) { }
 
   getRequest(url: string) {
-    return this.http.get(url);
+    return this.http.get(url).toPromise();
   }
 }
