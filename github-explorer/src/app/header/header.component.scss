@@ -1,21 +1,21 @@
-.common-header {
+.header {
   display: flex;
   justify-content: space-between;
   background-color: #3c4146;
   border-bottom-color: #202326;
 }
 
-.ch-title-wrapper {
+.header-title-wrapper {
   height: 100%;
   display: flex;
   align-items: center;
 
-  .ch-logo {
+  .header-logo {
     height: 50%;
     filter: invert(1);
   }
   
-  .ch-title {
+  .header-title {
     color: #DDDDDD;
     font-size: 32px;
     padding-top: 8px;
@@ -24,7 +24,7 @@
   }
 }
 
-.ch-search-input-wrapper {
+.header-search-input-wrapper {
   height: 100%;
   color: #DDDDDD;
 }

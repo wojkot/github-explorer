@@ -1,12 +1,36 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './common/material.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ReposListComponent } from './repos-list/repos-list.component';
+import { ReposListItemComponent } from './repos-list/repos-list-item/repos-list-item.component';
+import { BranchItemComponent } from './repos-list/repos-list-item/branch-item/branch-item.component';
+import { CommitItemComponent } from './repos-list/repos-list-item/commit-item/commit-item.component';
+import { CommentItemComponent } from './repos-list/repos-list-item/comment-item/comment-item.component';
+import { LandingComponent } from './landing/landing.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        ReposListComponent,
+        ReposListItemComponent,
+        BranchItemComponent,
+        CommitItemComponent,
+        CommentItemComponent,
+        LandingComponent
       ],
+      imports: [
+        RouterModule,
+        FormsModule,
+        MaterialModule,
+        AppRoutingModule
+      ]
     }).compileComponents();
   }));
 
@@ -20,12 +44,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('github-explorer');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to github-explorer!');
   });
 });

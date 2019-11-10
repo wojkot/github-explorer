@@ -1,3 +1,10 @@
-<div>
-  <app-repos-list-item *ngFor="let repoData of reposData" [repoData]="repoData" [userName]="userName"></app-repos-list-item>
+<div *ngIf="reposData && reposData.length>0" class="repos-list-wrapper">
+  <h1>Repositories of {{userName}}</h1>
+  <app-repos-list-item class="repos-list-item" *ngFor="let repoData of reposData"
+   [repoData]="repoData" 
+   [userName]="userName">
+  </app-repos-list-item>
+</div>
+<div *ngIf="reposData && reposData.length===0">
+  <p class="not-found-message">The user you are looking for probably does not exist. Check if you entered the name correctly</p>
 </div>

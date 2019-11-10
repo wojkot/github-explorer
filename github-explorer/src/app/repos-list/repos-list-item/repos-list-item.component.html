@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>{{repoData.name}}</mat-card-title>
     <span class="header-stars-container">
-      <mat-icon class="header-star" matSuffix>star</mat-icon><span>{{starsCount}}</span>
+      <mat-icon class="header-star" matSuffix>star</mat-icon><span class="star-count">{{starsCount || 0}}</span>
     </span>
     <mat-card-subtitle>{{repoData.description}}</mat-card-subtitle>
   </mat-card-header>
@@ -11,9 +11,9 @@
       <mat-icon matSuffix>code</mat-icon>
       <span>{{repoData.language}}</span>
     </span>
-    <span class="col-20">Forks: {{repoData.forks_count}}</span>
-    <span class="col-20">Open issues: {{repoData.open_issues_count}}</span>
-    <span class="col-40">Last update: {{repoLastUpdate}}</span>
+    <span class="col-20 forks-label">Forks: {{repoData.forks_count || 0}}</span>
+    <span class="col-20 issues-label">Open issues: {{repoData.open_issues_count || 0}}</span>
+    <span class="col-40 update-label">Last update: {{repoLastUpdate || 0}}</span>
   </mat-card-content>
 
   <div class="details">
@@ -23,15 +23,16 @@
           Branches ({{branchesData.length}})
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-branch-item [branchesData]="branchesData"></app-branch-item>
+      <app-branch-item *ngIf="branchesData.length>0" [branchesData]="branchesData"></app-branch-item>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Commits
+          Commits ({{commitsData.length}})
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <app-commit-item *ngIf="commitsData.length>0" [commitsData]="commitsData"></app-commit-item>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -40,7 +41,7 @@
           Comments ({{commentsData.length}})
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-comment-item [commentsData]="commentsData"></app-comment-item>
+      <app-comment-item *ngIf="commentsData.length>0" [commentsData]="commentsData"></app-comment-item>
     </mat-expansion-panel>
   </div>
 </mat-card>
