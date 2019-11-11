@@ -4,8 +4,8 @@
   <span class="header-title">explorer</span>
 </div>
 <div class="header-search-input-wrapper">
-  <mat-form-field >
-    <input [(ngModel)]="userName" type="text" matInput placeholder="Type user name...">
+  <mat-form-field class="input-form-fiels">
+    <input [(ngModel)]="userName" (keyup.enter)="searchRepos()" type="text" matInput placeholder="Type user name...">
     <mat-icon class="pointer" (click)="searchRepos()" matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
