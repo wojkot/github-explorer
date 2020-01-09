@@ -1,5 +1,5 @@
 {
-  "name": "github-explorer",
+  "name": "@wojkot/github-explorer",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
