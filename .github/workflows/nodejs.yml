@@ -23,7 +23,7 @@ jobs:
       working-directory: ./github-explorer
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
-    - run: npm publish
+    - run: npm --userconfig='$NPM_CONFIG_USERCONFIG publish
       working-directory: ./github-explorer
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
