@@ -24,6 +24,5 @@ jobs:
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
     - run: npm publish
-      working-directory: ./github-explorer/packages
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
