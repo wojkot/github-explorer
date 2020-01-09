@@ -23,6 +23,5 @@ jobs:
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
     - run: npm --@wojkot:registry=https://npm.pkg.github.com/ publish
-      working-directory: ./github-explorer
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
