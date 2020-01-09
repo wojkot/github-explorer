@@ -17,9 +17,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@octocat' 
     - name: npm install, build, test and publish
       working-directory: ./github-explorer
       run: |
         npm install
+    - run: npm publish
       env:
-        CI: true
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
