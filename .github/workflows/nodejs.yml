@@ -17,13 +17,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@octocat' # Defaults to the user or organization that owns the workflow file              
+        registry-url: 'https://npm.pkg.github.com'    
     - run: npm install
       working-directory: ./github-explorer
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
-    - run: npm --userconfig='$NPM_CONFIG_USERCONFIG' publish
+    - run: npm publish
       working-directory: ./github-explorer
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
