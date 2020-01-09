@@ -21,7 +21,7 @@ jobs:
         scope: '@octocat' 
     - name: npm install, build, test and publish
       working-directory: ./github-explorer
-      run: |
+    - run: |
         npm install
     - run: npm publish
       env:
