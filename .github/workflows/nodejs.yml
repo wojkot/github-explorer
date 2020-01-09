@@ -16,12 +16,12 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
-        scope: '@octocat' 
-    - name: npm install, build, test and publish
-      working-directory: ./github-explorer
+        scope: '@octocat' # Defaults to the user or organization that owns the workflow file
     - run: npm install
+      working-directory: ./github-explorer
     - run: npm publish
+      working-directory: ./github-explorer
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
