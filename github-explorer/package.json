@@ -48,7 +48,7 @@
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "repository": {
   "type": "git",
   "url": "https://github.com/wojkot/github-explorer.git"
