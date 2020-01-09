@@ -17,12 +17,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-        registry-url: 'https://npm.pkg.github.com'    
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@wojkot'
     - run: npm install
       working-directory: ./github-explorer
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
-    - run:  npm login --registry=https://npm.pkg.github.com/
     - run: npm publish
       working-directory: ./github-explorer
       env:
