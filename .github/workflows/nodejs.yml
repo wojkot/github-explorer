@@ -18,6 +18,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, test and publish
+      working-directory: ./github-explorer
       run: |
         npm install
       env:
