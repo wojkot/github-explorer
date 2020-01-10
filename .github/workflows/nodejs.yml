@@ -20,10 +20,10 @@ jobs:
         registry-url: 'https://npm.pkg.github.com'
         scope: '@wojkot'
     - run: npm install
+      working-directory: ./github-explorer
     - run: npm run build
       working-directory: ./github-explorer
-    - run: mv dist ./explorer
-      working-directory: ./github-explorer
+    - run: mv github-explorer/dist ./explorer
     - run: ls github-explorer
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
