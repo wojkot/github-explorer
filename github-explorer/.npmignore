@@ -1,3 +1,3 @@
-github-explorer/*
-github-explorer/.*
-!github-explorer/explorer/*
+/github-explorer/*
+/github-explorer/.*
+!/github-explorer/explorer/*
