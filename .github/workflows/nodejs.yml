@@ -21,6 +21,9 @@ jobs:
         scope: '@wojkot'
     - run: npm install
       working-directory: ./github-explorer
+    - run: npm run build
+      working-directory: ./github-explorer
+    - run: mv dist ./github_explorer/
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
     - run: npm publish
