@@ -20,7 +20,6 @@ jobs:
         registry-url: 'https://npm.pkg.github.com'
         scope: '@wojkot'
     - run: npm install
-      working-directory: ./github-explorer
     - run: npm run build
       working-directory: ./github-explorer
     - run: mv dist ./explorer
