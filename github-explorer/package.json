@@ -1,6 +1,6 @@
 {
   "name": "@wojkot/github-explorer",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -52,5 +52,8 @@
   "repository": {
   "type": "git",
   "url": "https://github.com/wojkot/github-explorer.git"
-}
+},
+    "files":  [
+    "dist",
+  ],
 }
