@@ -26,7 +26,7 @@ jobs:
     - run: ls github-explorer
     - run: printenv
     - run: cat /home/runner/work/_temp/.npmrc
-    - run: mv github-explorer/dist ./explorer
+    - run: mv dist ./explorer
       working-directory: ./github-explorer
     - run: npm publish
       working-directory: ./github-explorer
