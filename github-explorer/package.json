@@ -53,7 +53,7 @@
   "type": "git",
   "url": "https://github.com/wojkot/github-explorer.git"
 },
-    "files":  [
-    "dist",
+  "files":  [
+    "dist"
   ],
 }
